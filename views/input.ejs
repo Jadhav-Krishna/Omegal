@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omegal</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body class="bg-gray-900 text-white">
+  <div class="flex h-screen">
+    <!-- Video and call section -->
+    <div class="relative h-screen overflow-hidden w-2/3">
+      <div class="w-full h-full  flex flex-col items-center justify-center bg-gray-800 text-slate-500 gap-10">
+        <h1 class="text-center text-3xl font-semibold">
+          Click here for the video call !!!
+        </h1>
+        <button class="requestCallBtn bg-blue-900 px-5 py-1 rounded-full text-xl text-slate-200">
+          Make a Call
+        </button>
+      </div>
+      <div class="w-full h-full bg-gray-800 p-4 flex flex-col justify-between">
+        <!-- Main Video -->
+        <div class="h-1/2 mb-4">
+          <div class="relative">
+            <video id="localVideo" class="bg-slate-500 w-full h-1/2 rounded-xl overflow-hidden" autoplay></video>
+            <video id="remoteVideo" class="h-36 w-36 rounded-full absolute bottom-5 right-5 bg-slate-700 object-cover"
+              autoplay></video>
+            <!-- Video Controls -->
+            <div class="flex justify-center left-[40%] absolute bottom-5 space-x-4">
+              <button class="bg-gray-600 p-3 rounded-full">
+                <img src="https://img.icons8.com/ios-glyphs/24/ffffff/video-call.png" />
+              </button>
+              <button class="bg-red-600 p-3 rounded-full">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/end-call.png" />
+              </button>
+              <button class="bg-gray-600 p-3 rounded-full">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/microphone.png" />
+              </button>
+              <button class="bg-gray-600 p-3 rounded-full">
+                <img src="https://img.icons8.com/ios-glyphs/24/ffffff/tv.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Section -->
+    <div class="w-1/3 bg-gray-700 overflow-hidden p-4 flex flex-col">
+      <div class="h-28 flex items-center -mt-5 gap-5">
+        <div class="h-[3vw] w-[3vw] rounded-full overflow-hidden bg-slate-50">
+          <img src="https://i.pinimg.com/236x/2e/60/0c/2e600ced4390a438d6ce07d68826ee2b.jpg" alt="User avatar" />
+        </div>
+        <h1 class="font-semibold text-3xl">Users</h1>
+      </div>
+
+      <!-- Message Area -->
+      <div class="msg-area flex-grow relative overflow-y-auto mb-4 space-y-4">
+        <div class="nobody text-center flex items-center justify-center mt-96 w-full">
+          <h1 class="nobody text-3xl text-center w-4/5 font-semibold text-zinc-500">
+            Bhagwaan ksm koi nahi hai, rukh jao shayad koi aajaye
+          </h1>
+        </div>
+      </div>
+
+      <!-- Message Form -->
+      <form class="form flex items-center">
+        <input type="text" autocomplete="off" placeholder="Write a message..." id="msgbox"
+          class="msgbox flex-grow outline-none bg-gray-600 rounded-lg p-2" />
+        <button type="submit" value="" class="ml-3 bg-blue-600 p-2 rounded-lg">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/paper-plane.png" />
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup for Accepting/Denying Call -->
+  <div id="incomingCallModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 hidden items-center justify-center">
+    <div class="bg-gray-900 p-5 rounded-lg text-center">
+      <h2 class="text-2xl font-semibold mb-4">Incoming Video Call...</h2>
+      <div class="flex justify-center space-x-4">
+        <button id="acceptCall" class="bg-green-600 px-4 py-2 rounded">Accept</button>
+        <button id="denyCall" class="bg-red-600 px-4 py-2 rounded">Deny</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+    integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+    crossorigin="anonymous"></script>
+  <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
